@@ -1,0 +1,5 @@
+-keep class ca.ualberta.cs.lonelytwitter.LonelyTwitterActivity { <init>(); }
+-keep class ca.ualberta.cs.lonelytwitter.editActivity { <init>(); }
+-keep class ca.ualberta.cs.lonelytwitter.viewActivity { <init>(); }
+-keep class ca.ualberta.cs.lonelytwitter.countActivity { <init>(); }
+-keep class ca.ualberta.cs.lonelytwitter.launchingActivity { <init>(); }

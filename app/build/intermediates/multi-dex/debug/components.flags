@@ -1,0 +1,57 @@
+-injars /Users/caochenlin/Desktop/CMPUT301_Intro_to_Software_Enginerring/chenlin-FeelsBook/app/build/intermediates/transforms/jarMerging/debug/jars/1/1f/combined.jar
+-outjars /Users/caochenlin/Desktop/CMPUT301_Intro_to_Software_Enginerring/chenlin-FeelsBook/app/build/intermediates/multi-dex/debug/componentClasses.jar
+
+-libraryjars /Users/caochenlin/Library/Android/sdk/build-tools/22.0.1/lib/shrinkedAndroid.jar
+
+-forceprocessing
+-dontoptimize
+-dontobfuscate
+-dontusemixedcaseclassnames
+-dontpreverify
+-dontnote **
+-dontwarn **
+-printconfiguration /Users/caochenlin/Desktop/CMPUT301_Intro_to_Software_Enginerring/chenlin-FeelsBook/app/build/intermediates/multi-dex/debug/components.flags
+
+
+-keep class ca.ualberta.cs.lonelytwitter.LonelyTwitterActivity {
+    <init>();
+}
+
+-keep class ca.ualberta.cs.lonelytwitter.editActivity {
+    <init>();
+}
+
+-keep class ca.ualberta.cs.lonelytwitter.viewActivity {
+    <init>();
+}
+
+-keep class ca.ualberta.cs.lonelytwitter.countActivity {
+    <init>();
+}
+
+-keep class ca.ualberta.cs.lonelytwitter.launchingActivity {
+    <init>();
+}
+
+-keep public class * extends android.app.Instrumentation {
+    <init>();
+}
+
+-keep public class * extends android.app.Application {
+    <init>();
+    void attachBaseContext(android.content.Context);
+}
+
+-keep public class * extends android.app.backup.BackupAgent {
+    <init>();
+}
+
+-keep public class * extends java.lang.annotation.Annotation {
+    <fields>;
+    <methods>;
+}
+
+-keep class com.android.tools.fd.** {
+    <fields>;
+    <methods>;
+}

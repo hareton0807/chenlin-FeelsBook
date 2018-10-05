@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="ca.ualberta.cs.lonelytwitter.viewActivity">
+
+    <TextView
+        android:id="@+id/emotionTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20sp"
+        android:textSize="20sp"
+        android:text="Hello"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/dateTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20sp"
+        android:textSize="20sp"
+        android:text="world"
+        android:textColor="@android:color/white"/>
+
+    <TextView
+        android:id="@+id/commentTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20sp"
+        android:textSize="20sp"
+        android:text="!"
+        android:textColor="@color/white"/>
+
+
+</LinearLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/caochenlin/Library/Android/sdk/extras/android/m2repository/com/android/support/support-v4/18.0.0/support-v4-18.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="22.0.1"
+        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
+        <dex dex="/Users/caochenlin/Desktop/CMPUT301_Intro_to_Software_Enginerring/chenlin-FeelsBook/app/build/intermediates/pre-dexed/debug/support-v4-18.0.0_55f6f7e83988db2441bb4336bda5c3b07a4b58ba.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/caochenlin/Desktop/CMPUT301_Intro_to_Software_Enginerring/chenlin-FeelsBook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/18.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="22.0.1"
+        sha1="8f11f56e350eacabf2273f646d981356eea0ed77">
+        <dex dex="/Users/caochenlin/Desktop/CMPUT301_Intro_to_Software_Enginerring/chenlin-FeelsBook/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-18.0.0_9e18c59a2e10def068f45565b11e93cf421ffb87.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/caochenlin/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="22.0.1"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="/Users/caochenlin/Desktop/CMPUT301_Intro_to_Software_Enginerring/chenlin-FeelsBook/app/build/intermediates/pre-dexed/debug/gson-2.3.1_11f2bca422c7e301d1029af26c08ac65fb3f91e9.jar" />
+    </item>
+
+</items>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ca.ualberta.cs.lonelytwitter.launchingActivity">
+
+    <TextView
+        android:id="@+id/intro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/introduction"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/loveButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Love" />
+
+    <Button
+        android:id="@+id/joyButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/joy"/>
+
+    <Button
+        android:id="@+id/surpriseButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/surprise"/>
+
+    <Button
+        android:id="@+id/angerButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/anger"/>
+
+    <Button
+        android:id="@+id/sadnessButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sadness"/>
+
+    <Button
+        android:id="@+id/fearButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/fear" />
+
+    <TextView
+        android:id="@+id/commentIcon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/comment"
+        android:textSize="24sp"/>
+
+    <EditText
+        android:id="@+id/commentArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:labelFor="@id/commentArea"
+        android:maxLength="100"
+        android:scrollbars="horizontal"/>
+
+    <Button
+        android:id="@+id/historyList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/historyList"/>
+</LinearLayout>

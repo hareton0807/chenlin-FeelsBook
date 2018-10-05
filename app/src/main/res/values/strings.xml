@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Comment:</string>
+    <string name="introduction">My feeling is: </string>
+    <string name="app_name">chenlin-FeelsBook</string>
+    <string name="save">Save</string>
+    <string name="count">Count</string>
+    <string name="clear">Clear</string>
+    <string name="mood_prompt">Mood</string>
+    <color name="white">#FFFFFF</color>
+    <string name="love">Love</string>
+    <string name="joy">Joy</string>
+    <string name="surprise">Surprise</string>
+    <string name="anger">Anger</string>
+    <string name="sadness">Sadness</string>
+    <string name="fear">Fear</string>
+    <string name="dateStamp">Enter a date</string>
+    <string name="timeStamp">Enter a time</string>
+    <string name="comment">Enter a comment:</string>
+    <string name="historyList">History List</string>
+    <string name="back">Go Back</string>
+    <string-array name="mood_spinner">
+        <item>Love</item>
+        <item>Joy</item>
+        <item>Surprise</item>
+        <item>Anger</item>
+        <item>Sadness</item>
+        <item>Fear</item>
+    </string-array>
+</resources>
