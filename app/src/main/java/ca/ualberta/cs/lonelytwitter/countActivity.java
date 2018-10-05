@@ -6,6 +6,10 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+/*
+  Allows the user to see the count of each emotion they had in the past.
+ */
+
     public class countActivity extends Activity{
 
     @Override

@@ -32,4 +32,10 @@ References:
   Last edited date: 2014/12/23
   Retrieved date: 2018/10/1
 
+6.UML Quick Reference
+  Author: Allen I. Holub
+  Link: https://holub.com/uml
+  Version: 2.1.5
+  Retrieved date: 2018/10/4
+
   

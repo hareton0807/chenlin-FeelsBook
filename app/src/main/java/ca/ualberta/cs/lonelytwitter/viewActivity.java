@@ -1,3 +1,8 @@
+
+/*
+ * Copyright  (c) Team X. CMPUT 301. University of Alberta - All Rights Reserved. You may use, distribute, or modify this code under terms and conditions of the Code of Students' Behavior at Univeristy of Alberta.
+ */
+
 package ca.ualberta.cs.lonelytwitter;
 
 import android.app.Activity;

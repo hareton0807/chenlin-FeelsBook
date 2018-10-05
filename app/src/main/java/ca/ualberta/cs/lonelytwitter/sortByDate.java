@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.Date;
 
 /**
- * Created by caochenlin on 2018/10/4.
+ * Define a criterion for the app to sort all records of emotion by date.
  */
 
 public class sortByDate implements Comparator<Tweet> {

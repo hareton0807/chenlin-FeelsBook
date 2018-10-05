@@ -1,3 +1,7 @@
+/*
+ * Copyright  (c) Team X. CMPUT 301. University of Alberta - All Rights Reserved. You may use, distribute, or modify this code under terms and conditions of the Code of Students' Behavior at Univeristy of Alberta.
+ */
+
 package ca.ualberta.cs.lonelytwitter;
 
 import android.app.Activity;
@@ -8,6 +12,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+/*Launches the first activity of the app and allows users to add their emotion within only one click.
+  Allows users to access history list as well.
+ */
 
 public class launchingActivity extends Activity {
 

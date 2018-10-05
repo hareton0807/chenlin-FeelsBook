@@ -1,3 +1,8 @@
+
+/*
+ * Copyright  (c) Team X. CMPUT 301. University of Alberta - All Rights Reserved. You may use, distribute, or modify this code under terms and conditions of the Code of Students' Behavior at Univeristy of Alberta.
+ */
+
 package ca.ualberta.cs.lonelytwitter;
 
 import android.app.Activity;
@@ -24,6 +29,11 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+
+/*
+  Allows users to edit a past emotion record, including modifying their emotions, changing the dates and
+  rewriting a comment.
+ */
 
 public class editActivity extends Activity  {
 
@@ -79,7 +89,6 @@ public class editActivity extends Activity  {
                 final Spinner mySpinner2 = (Spinner) findViewById(R.id.spinner2);
                 String selection = mySpinner2.getSelectedItem().toString();
 
-                Log.d("Spinner Selection:",selection);
 
                 if(selection.compareTo("Love") == 0){
                     myFeeling = "Love";

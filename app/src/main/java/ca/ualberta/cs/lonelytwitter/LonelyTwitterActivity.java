@@ -1,3 +1,8 @@
+
+/*
+ * Copyright  (c) Team X. CMPUT 301. University of Alberta - All Rights Reserved. You may use, distribute, or modify this code under terms and conditions of the Code of Students' Behavior at Univeristy of Alberta.
+ */
+
 package ca.ualberta.cs.lonelytwitter;
 
 import java.io.BufferedReader;
@@ -36,10 +41,13 @@ import android.view.View.OnClickListener;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+/*
+ Displays the history list of all records and provides users access to view, edit and delete a record.
+ */
+
 public class LonelyTwitterActivity extends Activity {
 
     private static final String FILENAME = "file2.sav";
-    private EditText bodyText;
     private ListView feelingList;
 
     private ArrayList<ImportantTweet> tweets = new ArrayList<ImportantTweet>(); /* global var, it is everywhere */
@@ -62,7 +70,6 @@ public class LonelyTwitterActivity extends Activity {
         final Button backButton = (Button) findViewById(R.id.back);
         final Button countButton = (Button) findViewById(R.id.count);
 
-        Log.d("onCreate","on create!");
         Collections.sort(tweets,new sortByDate());
 
 
@@ -73,7 +80,6 @@ public class LonelyTwitterActivity extends Activity {
 
             while (tweetIterator.hasNext()) {
 
-                Log.d("arrive spot", "arrived here!");
 
                 String feelingElement = tweetIterator.next().getFeeling();
 
@@ -91,7 +97,7 @@ public class LonelyTwitterActivity extends Activity {
                     fearCount += 1;
                 }
             }
-            Log.d("t", "arrived here");
+
             Intent countIntent = new Intent(LonelyTwitterActivity.this, countActivity.class);
             countIntent.putExtra("loveCount", loveCount);
             countIntent.putExtra("joyCount", joyCount);
@@ -114,56 +120,6 @@ public class LonelyTwitterActivity extends Activity {
             }
         });
 
-
-
-        /*saveButton.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-
-                final Spinner mySpinner = (Spinner) findViewById(R.id.spinner1);
-                String selection = mySpinner.getSelectedItem().toString();
-
-                String myFeeling = "";
-
-                if(selection.compareTo("Love") == 0){
-                    myFeeling = "Love";
-                }
-
-                else if(selection.compareTo("Joy") ==0){
-                    myFeeling = "Joy";
-                }
-
-                else if(selection.compareTo("Surprise") ==0){
-                    myFeeling = "Surprise";
-                }
-                else if(selection.compareTo("Anger") == 0){
-                    myFeeling = "Anger";
-                }
-                else if(selection.compareTo("Sadness") == 0){
-                    myFeeling = "Sadness";
-                }
-                else if(selection.compareTo("Fear") == 0){
-                    myFeeling = "Fear";
-                }
-
-                ImportantTweet newTweet = new ImportantTweet();
-
-                newTweet.setFeeling(myFeeling);
-
-                String text = bodyText.getText().toString();
-
-                try {
-                    newTweet.setMessage(text);
-                    newTweet.setDate(new Date());
-                    tweets.add(newTweet);
-                    saveInFile();
-                    adapter.notifyDataSetChanged();
-                }catch(TooLongTweetException e){
-
-                }
-
-            }
-        });                                 */
     }
 
     @Override
@@ -179,12 +135,9 @@ public class LonelyTwitterActivity extends Activity {
         adapter.notifyDataSetChanged();
 
         if (intentFromEdit == false) {
-            Log.d("tag", "aaaaaaaaa");
             Intent intent5 = getIntent();
             feeling5 = intent5.getStringExtra("myFeeling");
-            System.out.println("intent5-feeling: " + feeling5);
             comment5 = intent5.getStringExtra("comment");
-            System.out.println("intent5-comment" + comment5);
         }
         else{
             feeling5 = null;
@@ -282,14 +235,13 @@ public class LonelyTwitterActivity extends Activity {
                 String dateContent = data.getStringExtra("dateContent");
                 String specificTime = data.getStringExtra("specificTime");
                 String modifiedTime = dateContent+" "+specificTime;
-                Log.d("comment",comment);
-                Log.d("modifiedTime",modifiedTime);
+
                 ImportantTweet modifiedTweet = new ImportantTweet();
                 try{
                     modifiedTweet.setFeeling(feeling);
-                    Log.d("received feeling:",feeling);
+
                     modifiedTweet.setMessage(comment);
-                    Log.d("comments from newTweet",comment);
+
                     Date myDate = new Date();
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                     try {
@@ -299,37 +251,10 @@ public class LonelyTwitterActivity extends Activity {
                     }
                     modifiedTweet.setDate(myDate);
 
-                    Log.d("dates from newTweet",myDate.toString());
                 }catch (TooLongTweetException e){
                     //
                 }
                 tweets.add(modifiedTweet);
-
-                /*
-                Iterator<ImportantTweet> tweetIterator = tweets.iterator();
-                while(tweetIterator.hasNext()){
-                    Log.d("tweets b4 set method: ",tweetIterator.next().toString());
-                }
-                Log.d("item",String.valueOf(item_id));
-                feelingList.setAdapter(adapter);
-                tweets.set(item_id,newTweet);
-                adapter.notifyDataSetChanged();
-
-                Log.d("tag:","arrived here!aaa");
-                Iterator<ImportantTweet> tweetIterator2 = tweets.iterator();
-
-
-                while(tweetIterator2.hasNext()){
-                    Log.d("tweets b5 set method: ",tweetIterator2.next().toString());
-                }
-
-                Iterator<ImportantTweet> tweetIterator3 = tweets.iterator();
-
-
-                while(tweetIterator3.hasNext()){
-                    Log.d("tweets b6 set method: ",tweetIterator3.next().toString());
-                }
-                */
 
                 Collections.sort(tweets,new sortByDate());
 

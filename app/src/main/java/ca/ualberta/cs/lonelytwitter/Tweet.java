@@ -1,7 +1,7 @@
 package ca.ualberta.cs.lonelytwitter;
 
 /**
- * Created by chenlin on 9/20/18.
+ * A twitter is used to record an emotion.
  */
 
 import android.util.Log;

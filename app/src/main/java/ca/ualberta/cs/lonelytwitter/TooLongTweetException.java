@@ -1,7 +1,7 @@
 package ca.ualberta.cs.lonelytwitter;
 
 /**
- * Created by chenlin on 9/20/18.
+ * Throws an exception if the record is longer than 100 characters.
  */
 
 public class TooLongTweetException extends Exception {

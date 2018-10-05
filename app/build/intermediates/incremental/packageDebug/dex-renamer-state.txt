@@ -1,4 +1,4 @@
-#Fri Oct 05 13:38:21 MDT 2018
+#Fri Oct 05 15:34:30 MDT 2018
 base.0=/Users/caochenlin/Desktop/CMPUT301_Intro_to_Software_Enginerring/chenlin-FeelsBook/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
 renamed.0=classes.dex
 file.0=/Users/caochenlin/Desktop/CMPUT301_Intro_to_Software_Enginerring/chenlin-FeelsBook/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex
