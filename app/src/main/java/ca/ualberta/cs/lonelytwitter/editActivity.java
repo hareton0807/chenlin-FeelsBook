@@ -41,7 +41,7 @@ public class editActivity extends Activity  {
         setContentView(R.layout.activity_edit);
 
         timeStamp = (EditText) findViewById(R.id.editText1);
-        timeStamp.setInputType(InputType.TYPE_NULL); //不显示系统输入键盘</span>
+        timeStamp.setInputType(InputType.TYPE_NULL); 
         timeStamp.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             public void onFocusChange(View v, boolean hasFocus) {
 
@@ -106,8 +106,8 @@ public class editActivity extends Activity  {
                 content = timeStamp.getText().toString();
                 time = specificTime.getText().toString();
                 Intent intent = new Intent();
-                intent.putExtra("feeling",myFeeling);
-                intent.putExtra("comment",comment);
+                intent.putExtra("emotion",myFeeling);
+                intent.putExtra("text",comment);
                 intent.putExtra("dateContent",content);
                 intent.putExtra("specificTime",time);
                 setResult(2,intent);
@@ -142,7 +142,7 @@ public class editActivity extends Activity  {
                 Toast.makeText(getApplicationContext(), "" + format.format(myCalendar.getTime()), Toast.LENGTH_SHORT).show();
                 specificTime.setText(i+":"+i1);
             }
-        }, myCalendar.get(Calendar.HOUR), myCalendar.get(Calendar.MINUTE), false);
+        }, myCalendar.get(Calendar.HOUR), myCalendar.get(Calendar.MINUTE), true);
         dialog.show();
 
     }

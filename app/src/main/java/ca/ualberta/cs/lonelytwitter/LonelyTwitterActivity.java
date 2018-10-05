@@ -42,11 +42,14 @@ public class LonelyTwitterActivity extends Activity {
     private EditText bodyText;
     private ListView feelingList;
 
-    private ArrayList<Tweet> tweets = new ArrayList<Tweet>(); /* global var, it is everywhere */
+    private ArrayList<ImportantTweet> tweets = new ArrayList<ImportantTweet>(); /* global var, it is everywhere */
 
-    private ArrayAdapter<Tweet> adapter;
+    private ArrayAdapter<ImportantTweet> adapter;
 
     private int item_id;
+
+    private String feeling5,comment5;
+    private Boolean intentFromEdit = false;
 
 
     /** Called when the activity is first created. */
@@ -62,10 +65,11 @@ public class LonelyTwitterActivity extends Activity {
         Log.d("onCreate","on create!");
         Collections.sort(tweets,new sortByDate());
 
+
         countButton.setOnClickListener(new View.OnClickListener() {
                                            public void onClick(View view) {
             int loveCount = 0, joyCount = 0, surpriseCount = 0, angerCount = 0, sadnessCount = 0, fearCount = 0;
-            Iterator<Tweet> tweetIterator = tweets.iterator();
+            Iterator<ImportantTweet> tweetIterator = tweets.iterator();
 
             while (tweetIterator.hasNext()) {
 
@@ -157,9 +161,7 @@ public class LonelyTwitterActivity extends Activity {
                 }catch(TooLongTweetException e){
 
                 }
-                Collections.sort(tweets,new sortByDate());
-                saveInFile();
-                adapter.notifyDataSetChanged();
+
             }
         });                                 */
     }
@@ -169,21 +171,33 @@ public class LonelyTwitterActivity extends Activity {
 
         super.onStart();
         loadFromFile();
-        adapter = new ArrayAdapter<Tweet>(this, R.layout.list_item, tweets);
+        adapter = new ArrayAdapter<ImportantTweet>(this, R.layout.list_item, tweets);
         feelingList.setAdapter(adapter);
         this.registerForContextMenu(feelingList);
 
-        Intent intent5 = getIntent();
-        String feeling = intent5.getStringExtra("myFeeling");
-        String comment = intent5.getStringExtra("comment");
+        Collections.sort(tweets,new sortByDate());
+        adapter.notifyDataSetChanged();
 
-        if(feeling != null) {
+        if (intentFromEdit == false) {
+            Log.d("tag", "aaaaaaaaa");
+            Intent intent5 = getIntent();
+            feeling5 = intent5.getStringExtra("myFeeling");
+            System.out.println("intent5-feeling: " + feeling5);
+            comment5 = intent5.getStringExtra("comment");
+            System.out.println("intent5-comment" + comment5);
+        }
+        else{
+            feeling5 = null;
+            comment5 = null;
+        }
+
+        if (feeling5 != null) {
             ImportantTweet newTweet = new ImportantTweet();
+            newTweet.setFeeling(feeling5);
 
-            newTweet.setFeeling(feeling);
 
             try {
-                newTweet.setMessage(comment);
+                newTweet.setMessage(comment5);
                 newTweet.setDate(new Date());
                 tweets.add(newTweet);
                 saveInFile();
@@ -194,7 +208,13 @@ public class LonelyTwitterActivity extends Activity {
             Collections.sort(tweets, new sortByDate());
             saveInFile();
             adapter.notifyDataSetChanged();
+            //Toast.makeText(getBaseContext(),"Record of emotion is successfully added.",Toast.LENGTH_LONG).show();
         }
+        intentFromEdit = false;
+
+
+
+
 
 
 
@@ -234,6 +254,9 @@ public class LonelyTwitterActivity extends Activity {
             case 2:
                 Toast.makeText(this,"clicked Edit option",Toast.LENGTH_SHORT).show();
                 Intent intent2 = new Intent(LonelyTwitterActivity.this,editActivity.class);
+                tweets.remove(item_id);
+                saveInFile();
+
                 startActivityForResult(intent2,7);
                 break;
             case 3:
@@ -251,18 +274,21 @@ public class LonelyTwitterActivity extends Activity {
         if(resultCode == 2){
             if(requestCode == 7){
 
-                String feeling = data.getStringExtra("feeling");
-                String comment = data.getStringExtra("comment");
+                adapter = new ArrayAdapter<ImportantTweet>(this, R.layout.list_item, tweets);
+                feelingList.setAdapter(adapter);
+
+                String feeling = data.getStringExtra("emotion");
+                String comment = data.getStringExtra("text");
                 String dateContent = data.getStringExtra("dateContent");
                 String specificTime = data.getStringExtra("specificTime");
                 String modifiedTime = dateContent+" "+specificTime;
                 Log.d("comment",comment);
-                Log.d("dateContent",dateContent);
-                ImportantTweet newTweet = new ImportantTweet();
+                Log.d("modifiedTime",modifiedTime);
+                ImportantTweet modifiedTweet = new ImportantTweet();
                 try{
-                    newTweet.setFeeling(feeling);
+                    modifiedTweet.setFeeling(feeling);
                     Log.d("received feeling:",feeling);
-                    newTweet.setMessage(comment);
+                    modifiedTweet.setMessage(comment);
                     Log.d("comments from newTweet",comment);
                     Date myDate = new Date();
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -271,34 +297,46 @@ public class LonelyTwitterActivity extends Activity {
                     }catch (Exception e){
                         e.printStackTrace();
                     }
-                    newTweet.setDate(myDate);
+                    modifiedTweet.setDate(myDate);
+
                     Log.d("dates from newTweet",myDate.toString());
                 }catch (TooLongTweetException e){
                     //
                 }
+                tweets.add(modifiedTweet);
 
-
-                Iterator<Tweet> tweetIterator = tweets.iterator();
+                /*
+                Iterator<ImportantTweet> tweetIterator = tweets.iterator();
                 while(tweetIterator.hasNext()){
                     Log.d("tweets b4 set method: ",tweetIterator.next().toString());
                 }
-
+                Log.d("item",String.valueOf(item_id));
+                feelingList.setAdapter(adapter);
                 tweets.set(item_id,newTweet);
+                adapter.notifyDataSetChanged();
 
                 Log.d("tag:","arrived here!aaa");
-                Iterator<Tweet> tweetIterator2 = tweets.iterator();
-                adapter.notifyDataSetChanged();
+                Iterator<ImportantTweet> tweetIterator2 = tweets.iterator();
+
 
                 while(tweetIterator2.hasNext()){
                     Log.d("tweets b5 set method: ",tweetIterator2.next().toString());
                 }
 
+                Iterator<ImportantTweet> tweetIterator3 = tweets.iterator();
 
-                saveInFile();
+
+                while(tweetIterator3.hasNext()){
+                    Log.d("tweets b6 set method: ",tweetIterator3.next().toString());
+                }
+                */
+
                 Collections.sort(tweets,new sortByDate());
-                saveInFile();
+
                 adapter.notifyDataSetChanged();
-                Toast.makeText(getBaseContext(),"Record of emotion is successfully added.",Toast.LENGTH_LONG).show();
+                saveInFile();
+
+                intentFromEdit = true;
             }
         }
 
@@ -321,7 +359,7 @@ public class LonelyTwitterActivity extends Activity {
             /* WE want the return type to be listTweetType.*/
 
         } catch (FileNotFoundException e) {
-            tweets = new ArrayList<Tweet>();
+            tweets = new ArrayList<ImportantTweet>();
             e.printStackTrace();
         }
 

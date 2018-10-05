@@ -103,11 +103,7 @@ public class launchingActivity extends Activity {
 
         history.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                myFeeling = null;
-                bodyText = null;
                 Intent intent = new Intent(launchingActivity.this,LonelyTwitterActivity.class);
-                intent.putExtra("myFeeling",myFeeling);
-                intent.putExtra("comment",bodyText);
                 startActivity(intent);
             }
         });
